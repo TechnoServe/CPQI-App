@@ -1,0 +1,18 @@
+<resources>
+    <!-- Base application theme for dark mode. -->
+    <style name="Base.Theme.TNSapp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Define custom attributes -->
+        <item name="colorButtonNormal">@color/maroon</item>
+    </style>
+    <style name="Base.Theme.TNSapp.NoActionBar">
+        <!-- No action bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!-- Spinner theme remains consistent between light and dark modes -->
+    <style name="SpinnerTheme">
+        <item name="android:textColor">@color/maroon</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/grey</item>
+    </style>
+</resources>

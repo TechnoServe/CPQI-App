@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_by_cws_name">Search by CWS Name</string>
+    <string name="select_year">Select Year</string>
+    <string name="select_month">Select Month</string>
+</resources>

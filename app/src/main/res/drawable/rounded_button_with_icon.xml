@@ -1,0 +1,12 @@
+<!-- rounded_button_with_icon.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background for the button (rounded rectangle) -->
+
+    <!-- Vector icon -->
+    <item
+        android:drawable="@drawable/baseline_control_point_24"
+        android:gravity="start"
+        android:width="10dp"
+        android:height="10dp"
+         /> <!-- Adjust the padding as needed -->
+</layer-list>

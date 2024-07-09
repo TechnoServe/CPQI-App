@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Toolbar with Menu Button -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/maroon">
+
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/back_icon"
+            android:padding="3dp"
+            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/audit_text"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <!-- Three Dots Icon -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:contentDescription="@string/menu_icon"
+            android:onClick="showDropdownMenu"
+            android:padding="8dp"
+            android:src="@drawable/baseline_more_horiz_24" />
+
+    </androidx.appcompat.widget.Toolbar>
+    <Button
+        android:id="@+id/viewStatisticsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/baseline_query_stats_24"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/maroon"
+        android:text="@string/view_statistics"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+    <!-- Button in Body -->
+    <Button
+        android:id="@+id/addNewBtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/maroon"
+        android:drawableStart="@drawable/baseline_control_point_24"
+        android:text="@string/add_new"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addNewBtn"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="5dp"
+        android:background="#F9EAEA"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/date"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <!-- CWSName Column -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/cws"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <!-- CWSName Column -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/total_answered"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <!-- Score Column -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/answered_score"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <include layout="@layout/items_empty_layout"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="maroon">#800000</color>
+    <color name="maroonDisabled">#784040</color>
+    <color name="lightPink">#FFE6EE</color>
+    <color name="grey">#808080</color>
+    <color name="lightGrey">#e6e6e6</color>
+    <color name="LightPink1">#F9EAEA</color>
+    <color name="default_button_color">#FFFFFFFF</color>
+    <color name="pressed_button_color">#FFE6EE</color>
+    <color name="button_border_color">#800000</color>
+    <color name="green">#008000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <!-- Light Theme Colors -->
+    <color name="colorButtonBackgroundLight">@color/maroon</color>
+    <!-- In res/values/colors.xml -->
+    <color name="colorButtonBackground">#FF5722</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="colorButtonBackgroundDark">@color/maroon</color>
+    <style name="CustomToastBackground">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <!-- Define the custom toast text -->
+    <style name="CustomToastText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

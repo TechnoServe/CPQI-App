@@ -1,0 +1,82 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CPQI</string>
+    <string name="get_started">TANGIRA</string>
+    <string name="coffee_image">coffee_image</string>
+    <string name="which_audit_are_you_inclined_to_undertake">Nirihe genzura ushaka gukora?</string>
+    <string name="continue_txt">KOMEZA</string>
+    <string name="back_icon">back icon</string>
+    <string name="audit_text">audit text</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="add_new">Kora irindi</string>
+    <string name="date">Itariki</string>
+    <string name="cws_name">Izina rya station</string>
+    <string name="cws">Station</string>
+    <string name="total_answered">Hasubijwe</string>
+    <string name="score">Amanota</string>
+    <string name="answered_score">Amanota y\' Ibyasubijwe</string>
+    <string name="no_records">no records</string>
+    <string name="name_txt">Amazina</string>
+    <string name="answers_saved">Ibisubizo biremejwe</string>
+    <string name="please_answer_all_questions">Subiza ibisubizo byose!</string>
+    <string name="date_lbl">Itariki:</string>
+    <string name="category_name">Cherry reception</string>
+    <string name="save_btn">Bika</string>
+    <string name="answer_txt">All coffee washing station income and expenses are recorded in.</string>
+    <string name="yes_txt">Yego</string>
+    <string name="no_txt">Oya</string>
+    <string name="audit_icon">Audit Icon</string>
+    <string name="category_icon">category icon</string>
+    <string name="import_csv">Shyiramo CSV</string>
+    <string name="export_csv">Bika CSV</string>
+    <string name="submitAll_txt">Submit All</string>
+    <string name="skip">Taruka</string>
+    <string name="submit">Emeza</string>
+    <string name="success_alert_msg">Igikorwa cyagenze neza!!!</string>
+    <string name="register_your_station">Ongeramo station </string>
+    <string name="address">Aderesi</string>
+    <string name="cws_leader">Nyiri station</string>
+    <string name="cws_Name">Izina rya station</string>
+    <string name="new_station">Sitasiyo Nshya</string>
+    <string name="Add_station">Shyiramo Sitasiyo</string>
+    <string name="add">Add</string>
+    <string name="no_items_to_display">Nta kintu kirimo</string>
+    <string name="missing_field_error_alert_msg">Uzuza ibikenewe byose</string>
+    <string name="select_cws_name">Hitamo Izina rya CWS</string>
+    <string name="toast_message">Gushyiramo Sitasiyo byagenze neza </string>
+    <string name="toast_message1">Sitasiyo isanzwe irimo!</string>
+    <string name="already_recorded_error_alert_msg">Iyi station yamaze gukorerwa.</string>
+    <string name="missing_respondent_error">Shyiramo izina ryawe.</string>
+    <string name="Score" />
+    <string name="scores">Amanota</string>
+    <string name="edit_audit">Edit Audit</string>
+    <string name="cws_error">Andika izina rya station</string>
+    <string name="leader_error">Andika izina rya nyiri sitasiyo</string>
+    <string name="address_error">Andika izina rya Aderesi</string>
+    <string name="_2024_03_19">2024–03–19</string>
+    <string name="uploaded_file">uploaded file</string>
+    <string name="missing_cws_error">Please select a CWS</string>
+    <string name="CWS_Owner" > Nyiri sitasiyo </string>
+    <string name="cws_owner">Nyiri sitasiyo</string>
+    <string name="name_of_respondent">izina ryuwuzuza</string>
+    <string name="view_statistics">Reba statistique</string>
+    <string name="statistics">statistique</string>
+    <string name="respondent_name">Izina ryawe</string>
+    <string name="welcome_message">MURAKAZA NEZA KU GIKORESHO CYIGENZURA RYA CPQI </string>
+    <string name="select_year">Select Year</string>
+    <string name="search_by_cws_name">Search by CWS Name</string>
+    <string name="select_month">Select Month</string>
+    <string-array name="months" tools:ignore="InconsistentArrays">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+</resources>

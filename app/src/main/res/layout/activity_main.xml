@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MissingClass">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/rounded_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:contentDescription="Language Icon"
+                android:src="@drawable/baseline_language_24" />
+
+            <Spinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="25dp"
+                android:background="@android:color/transparent"
+                android:entries="@array/languages"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:background="@color/transparent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/welcome_message"
+            android:textColor="#D7CFD7"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/get_started"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="80dp"
+            android:backgroundTint="@color/maroon"
+            android:text="@string/get_started"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_gravity="bottom|center_horizontal"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/logoWatermark"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:foregroundGravity="center"
+        android:alpha="0.9"
+        android:contentDescription="App Logo Watermark"
+        android:src="@drawable/tns1" />
+    </RelativeLayout>
+
+</FrameLayout>

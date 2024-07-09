@@ -1,0 +1,17 @@
+<resources>
+    <style name="Base.Theme.TNSapp" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorButtonNormal">@color/maroon</item>
+    </style>
+    <style name="Base.Theme.TNSapp.NoActionBar">
+        <!-- No action bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="SpinnerTheme">
+        <!-- Custom spinner theme attributes for light mode -->
+        <item name="android:textColor">#800000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/grey</item>
+
+    </style>
+</resources>

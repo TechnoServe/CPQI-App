@@ -1,0 +1,5 @@
+<!-- big_rectangle_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F8F0F0"/> <!-- Example color (light gray) -->
+</shape>

@@ -1,0 +1,211 @@
+{
+  "audits": [
+    {
+      "id": 1,
+      "name": "CPQI Checklist",
+      "icon_path": "baseline_beenhere_24",
+      "categories": [
+        {
+          "id": 1,
+          "name": "Cherry reception",
+          "icon_path": "baseline_person_24",
+          "questions": [
+            {
+              "id": 1,
+              "text": "Look in the hopper and select 50 cherries at random. Are at least 90% (45 cherries) within the correct ripeness scale?",
+              "weight": 1
+            },
+            {
+              "id": 2,
+              "text": "Look at a farmer weighing his cherry. Does the scale start at zero and is the name (or ID) of the farmer, date, volume and price filled out on the receipt?",
+              "weight": 1
+            },
+            {
+              "id": 3,
+              "text": "Look at the cherry before it is fed into the pulp hopper. Are they sorted by color or density before going into the pulping machine?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Pulping",
+          "icon_path": "baseline_filter_list_alt_24",
+          "questions": [
+            {
+              "id": 4,
+              "text": "Cherry should be processed within 8 hours of harvesting.Select a few farmers and ask when was the cherry harvested.Was it less than 8 hours ago?",
+              "weight": 1
+            },
+            {
+              "id": 5,
+              "text": "Look at the water source. Is all water used visibly clean with no debris and no ponds leaking or overflowing?",
+              "weight": 1
+            },
+            {
+              "id": 6,
+              "text": "Look at the pulping machine. Is it working well, adjusted correctly and clean with no leftover debris?",
+              "weight": 1
+            },
+            {
+              "id": 7,
+              "text": "Look in the fermentation tank and select 50 beans at random.Are no more than 10 beans cracked, un-pulped or damaged?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Fermentation and mucilage removal",
+          "icon_path": "baseline_playlist_remove_24",
+          "questions": [
+            {
+              "id": 8,
+              "text": "Look for old cherry pulp and parchment in the fermentation tank. Is the fermentation tank appropriately cleaned after the removal of the last batch?",
+              "weight": 1
+            },
+            {
+              "id": 9,
+              "text": "Look at the fermentation area. Is someone checking the almost-fermented wet parchment every hour?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Washing",
+          "icon_path": "baseline_local_laundry_service_24",
+          "questions": [
+            {
+              "id": 10,
+              "text": "Look for old cherry pulp and parchment in the washing channels. Are the washing channels appropriately cleaned after the removal of the last batch?",
+              "weight": 1
+            },
+            {
+              "id": 11,
+              "text": "Look at the parchment at the end of grading channel or just transferred to skin drying table. Is there any mucilage left on the beans?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Skin drying",
+          "icon_path": "baseline_table_restaurant_24",
+          "questions": [
+            {
+              "id": 12,
+              "text": "Look at the parchment coffee on the skin drying and drying tables. Are the beans being sorted (removing defective beans),rotated (turning the coffee) and labeled by grade?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Sun drying",
+          "icon_path": "baseline_wb_sunny_24",
+          "questions": [
+            {
+              "id": 13,
+              "text": "Look at the parchment coffee on the drying tables. Are the beans less than 5cm deep (approximately 1/2 your index finger)?",
+              "weight": 1
+            },
+            {
+              "id": 14,
+              "text": "Look at the drying tables. Are most tables at the washing station flat with no sagging?",
+              "weight": 1
+            },
+            {
+              "id": 15,
+              "text": "Look if all drying tables have plastic sheets (nylex) and shade nets. Is the parchment covered with shade net during hottest part of the day (11am-2pm) and with plastic sheet (nylex) during rain and at night?",
+              "weight": 1
+            },
+            {
+              "id": 16,
+              "text": "Look at a sample of parchment in the coffee store and check the moisture level. Is it at 10-12% moisture?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Storage",
+          "icon_path": "baseline_propane_tank_24",
+          "questions": [
+            {
+              "id": 17,
+              "text": "Look at the parchment store. Is the coffee store dry, clean and free of pests? Is the coffee elevated off of the floor and well ventilated?",
+              "weight": 1
+            },
+            {
+              "id": 18,
+              "text": "Look at the parchment store register and labels. Is the coffee sorted and labeled by grade?",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "CPSI Audit",
+      "icon_path": "baseline_balance_24",
+      "categories": [
+        {
+          "id": 1,
+          "name": "Bookkeeping and Financial Management",
+          "icon_path": "baseline_menu_book_24",
+          "questions": [
+            {
+              "id": 19,
+              "text": "All coffee washing station income and expenses are recorded in designated books (paper or digital) and receipts issued for each (preferably a carbon copy kept for filing). Check whether a proper accounting system is in place and being used",
+              "weight": 1
+            },
+            {
+              "id": 20,
+              "text": "Cash flow is managed effectively so that the coffee washing station does not need to stop cherry purchases and any on credit delivered cherries are paid out to farmers within the agreed period. Equally, coffee washing station workers are paid within the agreed period. Check whether any collection sites were forced to stopped buying over lack of liquidity and whether cherry purchases on credit and workers’ wages are paid within agreed upon",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Social and environmental standards",
+          "icon_path": "baseline_blinds_closed_24",
+          "questions": [
+            {
+              "id": 21,
+              "text": "On coffee washing station site no waste water is emitted to natural streams or ground. The channels transporting the water or evaporation ponds or wetland do not overflow. Check for signs of recent overflow around channels and ponds",
+              "weight": 1
+            },
+            {
+              "id": 22,
+              "text": "There is no visible sign of unnecessary water spillage Check for any unnecessary spillage (eg. running taps/broken pipes); specifically check water tank, pulping, fermentation and grading channel areas.",
+              "weight": 1
+            },
+            {
+              "id": 23,
+              "text": "Coffee pulp separated from wastewater and stored seperately Check if there is a system to separate pulp from wastewater in place (eg. pulphopper or filter in channel)",
+              "weight": 1
+            },
+            {
+              "id": 24,
+              "text": "The moving parts of the pulper are shielded off by guards; the evaporation ponds are fenced off; no sharp materials are lying around; and workers are not exposed to any danger. Check machine area",
+              "weight": 1
+            },
+            {
+              "id": 25,
+              "text": "Workers on site are working under good working conditions meaning they have access to potable water as well as sanitary and hand-washing facilities Ask workers about working conditions and check whether toilet, handwashing and drinking water is available",
+              "weight": 1
+            },
+            {
+              "id": 26,
+              "text": "There is not a single underage worker (<16 yrs) on site",
+              "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

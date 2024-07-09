@@ -1,0 +1,127 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CPQI</string>
+    <string name="get_started">Get Started</string>
+    <string name="coffee_image">coffee_image</string>
+    <string name="which_audit_are_you_inclined_to_undertake">Which audit are you inclined to undertake?</string>
+    <string name="continue_txt">CONTINUE</string>
+    <string name="back_icon">back icon</string>
+    <string name="audit_text">audit text</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="add_new">Add New</string>
+    <string name="date">Date</string>
+    <string name="cws_name">CWS Name</string>
+    <string name="score">Score</string>
+    <string name="answered_score">A. Score</string>
+    <string name="no_records">no records</string>
+    <string name="name_txt">Name</string>
+    <string name="date_lbl">Date:</string>
+    <string name="answers_saved">Answers saved</string>
+    <string name="please_answer_all_questions">Please answer all questions in this category</string>
+    <string name="category_name">Cherry reception</string>
+    <string name="save_btn">Save</string>
+    <string name="answer_txt">All coffee washing station income and expenses are recorded in.</string>
+    <string name="yes_txt">Yes</string>
+    <string name="no_txt">No</string>
+    <string name="audit_icon">Audit Icon</string>
+    <string name="category_icon">category icon</string>
+    <string name="import_csv">Import CSV</string>
+    <string name="export_csv">Export CSV</string>
+    <string name="submitAll_txt">Submit All</string>
+    <string name="close_icon_description" translatable="false">close_icon_description</string>
+    <string name="skip">Skip</string>
+    <string name="submit">submit</string>
+    <string name="success_alert_msg">Checklist recorded successfully!!!</string>
+    <string name="new_station">New Station</string>
+    <string name="Add_station">Add Station</string>
+    <string name="add">Add</string>
+    <string name="register_your_station">Register your station</string>
+    <string name="cws_leader">CWS Leader</string>
+    <string name="address">Address</string>
+    <string name="cws_Name">CWS Name</string>
+    <string name="cws">CWS</string>
+    <string name="total_answered">Total A.</string>
+    <string name="no_items_to_display">No items to display</string>
+    <string name="missing_field_error_alert_msg">Some Fields Are Empty</string>
+    <string name="select_cws_name">Select CWS Name</string>
+    <string name="toast_message">"CWS added successfully"</string>
+    <string name="toast_message1">""CWS already exists""</string>
+    <string name="already_recorded_error_alert_msg">The checklist for this Station was already recorded today.</string>
+    <string name="missing_respondent_error">Please enter a respondent.</string>
+    <string name="Score" />
+    <string name="scores">Scores</string>
+    <string name="edit_audit">Edit Audit</string>
+    <string name="cws_error">CWS name cannot be empty</string>
+    <string name="leader_error">CWS leader cannot be empty</string>
+    <string name="address_error">CWS address cannot be empty</string>
+    <string name="_2024_03_19">2024–03–19</string>
+    <string name="uploaded_file">uploaded file</string>
+    <string name="missing_cws_error">Please select a CWS</string>
+    <string name="CWS_Owner"> cws_owner </string>
+    <string name="cws_owner">CWS Owner</string>
+    <string name="name_of_respondent">name of respondent</string>
+    <string name="view_statistics">View Statistics</string>
+    <string name="statistics">statistics</string>
+    <string name="respondent_name">Respondent Name</string>
+    <string name="welcome_message">WELCOME TO COFFEE PROCESSING QUALITY ASSESSMENT TOOL</string>
+    <string name="select_year">Select Year</string>
+    <string name="select_month">Select Month</string>
+    <string name="search_by_cws_name">Search by CWS Name</string>
+    <string-array name="select_district" translatable="false">
+        <item>Muhanga </item>
+        <item>Ruhango</item>
+        <item> Gisagara</item>
+        <item>Nyaruguru</item>
+        <item>Nyamagabe </item>
+        <item> Nyanza</item>
+        <item> Huye</item>
+        <item> Kamonyi</item>
+        <item>Nyarugenge </item>
+        <item>Gasabo</item>
+        <item>Kicukiro </item>
+        <item>Rusizi</item>
+        <item>Ngororero</item>
+        <item> Nyabihu</item>
+        <item>Karongi </item>
+        <item>Nyamasheke</item>
+        <item> Rubavu</item>
+        <item>Rutsiro </item>
+        <item>Bugesera</item>
+        <item>Gatsibo </item>
+        <item>Nyagatare </item>
+        <item>Kayonza</item>
+        <item>Ngoma </item>
+        <item>Kirehe</item>
+        <item>Rwamagana</item>
+        <item>Nyamasheke</item>
+        <item>Gakenke</item>
+        <item> Burera</item>
+        <item> Rulindo</item>
+        <item>Musanze </item>
+        <item>Gicumbi</item>
+    </string-array>
+    <string-array name="languages" translatable="false">
+        <item>English </item>
+        <item>Kinyarwanda</item>
+    </string-array>
+    <string-array name="months" tools:ignore="InconsistentArrays">
+        <item>select month</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string-array name="years">
+        <item>select year</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+    </string-array>
+</resources>

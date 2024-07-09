@@ -1,0 +1,212 @@
+{
+  "audits": [
+    {
+      "id": 1,
+      "name": "Igenzura rya CPQI ",
+      "icon_path": "baseline_beenhere_24",
+      "categories": [
+        {
+          "id": 1,
+          "name": "Kwakira kawa",
+          "icon_path": "baseline_person_24",
+          "questions": [
+            {
+              "id": 1,
+              "text": " Reba aho bashyira kawa yakiriwe maze uyore intete 50.Nibura 90%(intete 45) byazo zihishije neza hose?",
+              "weight": 1
+            },
+            {
+              "id": 2,
+              "text": "Reba aho bapimira kawa. Mbere yo gupima, Umunzani uregeye muri zeru kandi izina(cyangwa Irangamuntu) ry'umuhinzi, itariki, ingano(kg) n'igiciro byujujwe ku inyemezabuguzi?",
+              "weight": 1
+            },
+            {
+              "id": 3,
+              "text": "Reba kawa mbere y'uko zishyirwa mu mashini. Zitandukanywa hakurikijwe ibara n'ireme bwite ryazo mbere yo kuzitonora?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Gutonora",
+          "icon_path": "baseline_filter_list_alt_24",
+          "questions": [
+            {
+              "id": 4,
+              "text": "Kawa igomba gutonorwa itararenza amasaha 8 isaruwe.Baza bamwe mu bahinzi igihe basaruriye. Ese ntabwo kawa zirarenza amasaha 8?",
+              "weight": 1
+            },
+            {
+              "id": 5,
+              "text": "Reba isoko y'amazi. Ese amazi arimo gukoreshwa arasa neza; nta myanda irimo, ntabwo ava cyangwa ngo asandare hasi?",
+              "weight": 1
+            },
+            {
+              "id": 6,
+              "text": "Reba imashini itonora. Irakora neza, iregeye neza kandi nta bisigazwa bya kawa yabanjemo bikirimo?",
+              "weight": 1
+            },
+            {
+              "id": 7,
+              "text": "Reba mu bigega bihugutishirizwamo kawa maze uyore intete 50. Ese izamenetse cyangwa izidatonoye ntizirenga 10?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Ihugutishamurenda +Gukuraho umurenda",
+          "icon_path": "baseline_playlist_remove_24",
+          "questions": [
+            {
+              "id": 8,
+              "text": "Reba niba nta bisigizwa bya loti ya kawa yabanje mu bigega byasigayemo. Ese ibigega bisukuwe neza mbere yo gushyiramo indi loti?",
+              "weight": 1
+            },
+            {
+              "id": 9,
+              "text": "Reba ahahugutishirizwa. Buri saha, hari umuntu ugenzura kawa yegereje guhuguta?",
+              "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": " Koza/ Kuronga",
+          "icon_path": "baseline_local_laundry_service_24",
+          "questions": [
+            {
+              "id": 10,
+              "text": "Reba niba nta bisigazwa bya kawa ya loti zabanje birimo. Ahogerezwa kawa harasukurwa neza nyuma yo kuzikuramo?",
+              "weight": 1
+            },
+            {
+              "id": 11,
+              "text": "Reba kawa imaze kozwa cyangwa yimurirwa ku bwumukirizo. Nta murenda wasigaye ku ntete?",
+                "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Kwanika",
+          "icon_path": "baseline_table_restaurant_24",
+          "questions": [
+            {
+              "id": 12,
+              "text": "Reba mu bwumukirizo no ku bwanikiro. Kawa ijonjorwamo izangiritse? Irahindurwa (izari hasi zikaza hejuru)? Ibitanda byanditseho icyiciro cya kawa yanitseho.",
+                "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": " Kwanika",
+          "icon_path": "baseline_wb_sunny_24",
+          "questions": [
+            {
+              "id": 13,
+              "text": "Reba kawa yanitse. Umubyimba wa kawa zigerekeranye uri munsi ya 5cm(hafi 1/2 cy'urutoki rwa mukubitarukoko)",
+                "weight": 1
+            },
+            {
+              "id": 14,
+              "text": "Reba ibitanda byanikwaho. Ese ibitanda hafi ya byose biraterereye, nta binogo birimo byakwirundamo kawa?",
+                "weight": 1
+            },
+            {
+              "id": 15,
+              "text": "Reba ko ibitanda byose bifite amashashi(nylex) n'udutimba (shade net). Ese kawa itwikirizwa udutimba mu gihe cy'ubushyuhe bukabije (11:00-14:00) kandi hakongerwaho ishashi(nylex) mu gihe cy'imvura na nijoro?",
+                "weight": 1
+            },
+            {
+              "id": 16,
+              "text": "Fata impagararizi ya kawa mu bubiko upime ubuhehere bwayo. Ubuherere bwayo buri hagati ya 10-12%?",
+                "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "name": " Ububiko",
+          "icon_path": "baseline_propane_tank_24",
+          "questions": [
+            {
+              "id": 17,
+              "text": "Reba aho kawa ibitse. Ese harumutse, hari isuku kandi nta byonnyi birimo? Kawa ntabwo iteretse hasi? Umwuka winjiramo neza?",
+                "weight": 1
+            },
+            {
+              "id": 18,
+              "text": "Reba inyandiko y'ububiko n'ibiranga kawa. Ese kawa ibitse hakurikijwe ibyiciro byayo kandi bigaragara ku cyo ibitsemo?",
+                "weight": 1
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Igenzura rya CPSI",
+      "icon_path": "baseline_balance_24",
+      "categories": [
+        {
+          "id": 1,
+          "name": "Kubika inyandiko n'icungamutungo",
+          "icon_path": "baseline_menu_book_24",
+          "questions": [
+            {
+              "id": 19,
+              "text": " Amafaranga yose yinjizwa n'ayasohorwa n'uruganda yandikwa mu ibitabo byabugenewe (impapuro cg ikoranabuhanga) `ndetse inyemezabwishyu zitangwa ku byaguzwe byose (bibaye byiza uruganda rusigarana kopi yo kubika).Genzura niba hari uburyo bw'ibaruramari busobanutse uruganda rufite kandi burakoreshwa",
+                "weight": 1
+            },
+            {
+              "id": 20,
+              "text": "Iyinjira n'isohoka ry'amafaranga ricungwa neza bituma uruganda rudahagarika kugura kawa ndetse abahinzi bazanye kawa ntibahite bishyurwa bahabwa amafaranga yabo mu igihe bemeranijwe n'uruganda. Kimwe n'abakozi b'uruganda nabo bahemberwa ku igihe.Genzura niba nta kusanyirizo ryahagaritse kwakira kawa kubera kubura amafaranga yo kwishyura ndetse niba imyenda y'abahinzi bazanye kawa n'imishahara y'abakozi yishyurwa ku igihe",
+                "weight": 1
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "bipimo by'imikorere myiza Ibungabunga ubuzima \nn'ibidukikije",
+          "icon_path": "baseline_blinds_closed_24",
+          "questions": [
+            {
+              "id": 21,
+              "text": "Amazi yanduye ava mu uruganda ntabwo ajya mu imigezi cyangwa ngo asandare ku mbuga. Imigende itwara amazi cyangwa ibyobo/ahantu bihurizwamo amazi yakoreshejwe ntabwo byuzura ngo amazi arenguke hanze. Genzura niba hari ibigaragaza ko amazi aheruka kurenguka hafi y'imiyoboro ishyira kawa mu ibyiciro n' ibyobo by'amazi.ngo amazi arenguke hanze",
+                "weight": 1
+            },
+            {
+              "id": 22,
+              "text": "ta bimenyetso byo kwangiza amazi bigaragara ku ruganda.\nGenzura ko nta mazi yangirika(robinet ziva/ibitembo byamenetse); by'umwihariko genzura ahari ikigega cy'amazi, aho batonorera, ihugutishamurenda n'ahari imiyoboro ishyira kawa mu ibyiciro",
+                "weight": 1
+            },
+            {
+              "id": 23,
+              "text": "Ibishishwa bya kawa bitandukanywa n'amazi yanduye ndetse \nbikarundwa ahantu cg mu ibyobo bitandukanye.Genzura niba hari uburyo uuruganda rufite bwo gutandukanya ibishishwa n'amazi yanduye(urugero: niba hari ikigega gitandukanirizwamo ibishishwa n'amazi cg Imiyoboro ifite uburyo buyungurura amazi)",
+                "weight": 1
+            },
+            {
+              "id": 24,
+              "text": "Ibice byikaraga by'imashini bitwikirijwe ibirinda ko byateza \nimpanuka igihe bihubutsemo; ibyobo by'amazi birazitiye, nta bikoresho bikomeretsa byandagaye, abakozi barindwa ibyabangiriza ubuzima aho bakorera.Genzura aho imashini iri.",
+                "weight": 1
+            },
+            {
+              "id": 25,
+              "text": " Abakozi bakorera ahantu hameze neza hatuma akazi gakorwa neza; \nbabona amazi meza yo kunywa, hari isuku n'uburyo bwo gukaraba intoki. Baza abakozi ku imiterere y'aho bakorera n'uburyo babona ibibafasha gukora akazi,unagenzure niba bafite ubwiherero n'amazi yo gukaraba intoki no kunywa",
+                "weight": 1
+            },
+            {
+              "id": 26,
+              "text": "Ntabwo bakoresha abana batujuje imyaka y'ubukure(batagejeje16)",
+                "weight": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

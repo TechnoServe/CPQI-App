@@ -1,0 +1,10 @@
+<formatter class="com.androidplot.xy.LineAndPointFormatter">
+    <linePaint
+        color="#0000FF"
+        strokeWidth="2dp" />
+    <vertexPaint
+        color="#0000FF"
+        strokeWidth="4dp" />
+    <fillPaint
+        color="#800000FF" />
+</formatter>

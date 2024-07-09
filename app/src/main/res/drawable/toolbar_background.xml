@@ -1,0 +1,11 @@
+<!-- toolbar_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Round corners -->
+    <corners android:radius="20dp" /> <!-- Adjust the radius as needed -->
+
+    <!-- Background color -->
+    <solid android:color="@color/maroon" /> <!-- Use your desired maroon color -->
+
+</shape>
