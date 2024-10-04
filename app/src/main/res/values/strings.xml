@@ -11,7 +11,7 @@
     <string name="date">Date</string>
     <string name="cws_name">CWS Name</string>
     <string name="score">Score</string>
-    <string name="answered_score">A. Score</string>
+    <string name="answered_score">Score</string>
     <string name="no_records">no records</string>
     <string name="name_txt">Name</string>
     <string name="date_lbl">Date:</string>
@@ -26,6 +26,7 @@
     <string name="category_icon">category icon</string>
     <string name="import_csv">Import CSV</string>
     <string name="export_csv">Export CSV</string>
+    <string name="share_csv">Share CSV</string>
     <string name="submitAll_txt">Submit All</string>
     <string name="close_icon_description" translatable="false">close_icon_description</string>
     <string name="skip">Skip</string>
@@ -39,7 +40,7 @@
     <string name="address">Address</string>
     <string name="cws_Name">CWS Name</string>
     <string name="cws">CWS</string>
-    <string name="total_answered">Total A.</string>
+    <string name="total_answered">Total Answered</string>
     <string name="no_items_to_display">No items to display</string>
     <string name="missing_field_error_alert_msg">Some Fields Are Empty</string>
     <string name="select_cws_name">Select CWS Name</string>
@@ -55,14 +56,15 @@
     <string name="address_error">CWS address cannot be empty</string>
     <string name="_2024_03_19">2024–03–19</string>
     <string name="uploaded_file">uploaded file</string>
-    <string name="missing_cws_error">Please select a CWS</string>
+    <string name="spinner_select">Please add or select a CWS</string>
+    <string name="missing_cws_error">Please add or select a CWS</string>
     <string name="CWS_Owner"> cws_owner </string>
     <string name="cws_owner">CWS Owner</string>
     <string name="name_of_respondent">name of respondent</string>
     <string name="view_statistics">View Statistics</string>
     <string name="statistics">statistics</string>
     <string name="respondent_name">Respondent Name</string>
-    <string name="welcome_message">WELCOME TO COFFEE PROCESSING QUALITY ASSESSMENT TOOL</string>
+    <string name="welcome_message">WELCOME TO THE COFFEE PROCESSING QUALITY INDEX TOOL</string>
     <string name="select_year">Select Year</string>
     <string name="select_month">Select Month</string>
     <string name="search_by_cws_name">Search by CWS Name</string>

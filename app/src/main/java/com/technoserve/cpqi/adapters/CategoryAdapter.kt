@@ -1,7 +1,9 @@
+
 package com.technoserve.cpqi.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +33,7 @@ class CategoryAdapter(
         val categoryNameView: TextView = itemView.findViewById(R.id.categoryName)
         val categoryIconView: ImageView = itemView.findViewById(R.id.imageView)
         val progressBar: View = itemView.findViewById(R.id.progressBar)
+        val progressedBar: View = itemView.findViewById(R.id.progressedBar)
 
         init {
             itemView.setOnClickListener(this)
@@ -72,10 +75,13 @@ class CategoryAdapter(
         }
 
         if (selectedCategoryIds.contains(currentItem.id.toInt())) {
-            holder.progressBar.setBackgroundColor(context.getColor(R.color.maroon))
+            holder.progressedBar.setBackgroundColor(context.getColor(R.color.maroon))
+            holder.progressBar.setBackgroundColor(context.getColor(R.color.maroonWhite))
         }
 
         loadImageFromUrl(currentItem.iconPath, holder.categoryIconView)
+        Log.d("CategoryAdapter", "Position: $position, SelectedCategoryIds: $selectedCategoryIds")
+
     }
 
     override fun getItemCount(): Int {

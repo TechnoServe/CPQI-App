@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/select_cws_name"
-        />
+        tools:ignore="MissingClass" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         style="@android:style/Widget.Spinner.DropDown"
@@ -61,7 +61,7 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintHorizontal_bias="0.5"
         android:contentDescription="@string/select_month"
-        />
+        tools:ignore="MissingClass" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         style="@android:style/Widget.Spinner.DropDown"

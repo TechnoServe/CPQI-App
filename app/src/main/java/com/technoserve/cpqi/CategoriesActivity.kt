@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -62,6 +63,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CategoryAdapter
     private lateinit var audit: String
+    private var chart :Int=0
     private var auditId by Delegates.notNull<Int>()
     private lateinit var respondentContainer: LinearLayout
     private lateinit var respondent: TextView
@@ -113,9 +115,10 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
         addStation = findViewById(R.id.addStation)
         cwsInputLayout = findViewById(R.id.cwsInputLayout)
         onClickListener(addStation)
-        lifecycleScope.launch(Dispatchers.IO) {
-            insertInitialStationsFromJson()
-        }
+//        lifecycleScope.launch(Dispatchers.IO) {
+//            insertInitialStationsFromJson()
+//        }
+        chart = R.drawable.cherry_scale
         val score = 0
 
         progressBar.progress = score
@@ -159,6 +162,8 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
 //                loop through answers and check if id is null, add new item in answerDetails, otherwise update existing item
                 answers.forEach {
                     if (it.id == null) {
+                        val cwsNameValue = answerDetails.last().cwsName
+                        Log.d("cwsNameValue", "cwsNameValue: $cwsNameValue")
                         answerDetails = answerDetails.plus(
                             Answers(
                                 null,
@@ -196,7 +201,10 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
             //if the respondent is empty raise an error and after entering name update the answerDetails
 
             //if cws name is not selected, show a toast and request focus in the spinner to select cws name
-            if (cwsName.selectedItem == null) {
+            Log.d("cwsName.selectedItem", "cwsName.selectedItem: ${cwsName.selectedItem}")
+            val hintText = getString(R.string.select_cws_name)
+            Log.d("hintText", "hintText: $hintText")
+            if (cwsName.selectedItem == null || cwsName.selectedItem == hintText) {
                 Toast.makeText(
                     this,
                     applicationContext.getText(R.string.missing_cws_error),
@@ -211,6 +219,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 Thread {
                     db.answerDao().insertAll(answers)
                 }.start()
+
             } else {
                 Thread {
                     answerDetails = answerDetails.map {
@@ -299,18 +308,21 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
     private fun fetchCwsData() {
         lifecycleScope.launch(Dispatchers.IO) {
             val cwsList = db.cwsDao().getAll()
-
+            val cwsNames = getCwsNames(cwsList).toMutableList()
+            val hintText = getString(R.string.select_cws_name)
+            cwsNames.add(0, hintText)
             // Create an ArrayAdapter with CWS names (or relevant data)
             val adapter = ArrayAdapter(
                 this@CategoriesActivity,
                 android.R.layout.simple_spinner_dropdown_item,
-                getCwsNames(cwsList)
+                cwsNames
             )
 
             // Update UI on the main thread
             withContext(Dispatchers.Main) {
                 cwsName.adapter = adapter
                 adapter.notifyDataSetChanged()
+                cwsName.setSelection(0)
             }
         }
     }
@@ -323,31 +335,31 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
         return names
     }
 
-    private fun insertInitialStationsFromJson() {
-        lifecycleScope.launch {
-            val jsonString = assets.open("stations.json").bufferedReader().use { it.readText() }
-            val gson = Gson()
-            val stationsType = object : TypeToken<List<Cws>>() {}.type
-            val stations: List<Cws> = gson.fromJson(jsonString, stationsType)
-
-            val newStations = mutableListOf<Cws>()
-            for (station in stations) {
-                val existingCws = db.cwsDao().getAllCwsByName(station.cwsName)
-                if (existingCws == null) {
-                    station.cwsLeader = ""
-                    station.location = ""
-                    newStations.add(station.copy(id = UUID.randomUUID()))
-                }
-            }
-
-            if (newStations.isNotEmpty()) {
-                db.cwsDao().insertAll(newStations)
-            }
-            withContext(Dispatchers.Main) {
-                fetchCwsData()
-            }
-        }
-    }
+//    private fun insertInitialStationsFromJson() {
+//        lifecycleScope.launch {
+//            val jsonString = assets.open("stations.json").bufferedReader().use { it.readText() }
+//            val gson = Gson()
+//            val stationsType = object : TypeToken<List<Cws>>() {}.type
+//            val stations: List<Cws> = gson.fromJson(jsonString, stationsType)
+//
+//            val newStations = mutableListOf<Cws>()
+//            for (station in stations) {
+//                val existingCws = db.cwsDao().getAllCwsByName(station.cwsName)
+//                if (existingCws == null) {
+//                    station.cwsLeader = ""
+//                    station.location = ""
+//                    newStations.add(station.copy(id = UUID.randomUUID()))
+//                }
+//            }
+//
+//            if (newStations.isNotEmpty()) {
+//                db.cwsDao().insertAll(newStations)
+//            }
+//            withContext(Dispatchers.Main) {
+//                fetchCwsData()
+//            }
+//        }
+//    }
 
     private fun disableRecyclerView(recyclerView: RecyclerView) {
         // Disable all child views of the RecyclerView
@@ -451,7 +463,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             it.answer,
                             it.qId,
                             auditId.toLong(),
-                            cwsName.selectedItem.toString(),
+                            cwsName.selectedItem?.toString() ?:"",
                             ""
                         )
                     }.toTypedArray()
@@ -463,7 +475,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             "",
                             items!![0].id,
                             auditId.toLong(),
-                            cwsName.selectedItem!!.toString(),
+                            cwsName.selectedItem?.toString() ?:"",
                             ""
                         )
                     )
@@ -499,6 +511,9 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
             ) {
                 val selectedCwsName = cwsName.selectedItem.toString()
                 val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
+
+
                 answerDetails = db.answerDao().getAll()
                     .filter { it.cwsName == selectedCwsName && formatDate(it.date) == today }
                     .toTypedArray()
@@ -524,9 +539,9 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             null,
                             respondent.text.toString(),
                             "",
-                            items?.getOrNull(0)?.id ?: 0,
-                            auditId.toLong(),
-                            selectedCwsName,
+                             items?.getOrNull(0)?.id ?: 0,
+                            auditId=auditId.toLong(),
+                            cwsName=selectedCwsName,
                             ""
                         )
                     ).toList().toTypedArray()
@@ -538,6 +553,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 // Do nothing if nothing is selected
             }
         }
+
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -563,22 +579,55 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
 
     private fun startActivityAfterClick(position: Int) {
         val auditId = intent.getIntExtra("auditId", 0)
+        val hintText = getString(R.string.select_cws_name) // Example hint text like "Select CWS Name"
 
-        dialog = PopupActivity(
-            this,
-            auditId,
-            audit,
-            position,
-            adapter.items[position - 1].name,
-            answerDetails,
-            respondent.text.toString(),
-            if (cwsName.selectedItem != null) if (editMode) cwsEditText.text.toString() else cwsName.selectedItem.toString() else "",
-            editMode,
-            viewMode,
+// Conditional logic for handling the selection
+        val selectedCwsName = when {
+//            cwsName.selectedItem == null || cwsName.selectedItem.toString() == hintText -> ""
+            editMode -> cwsEditText.text.toString() // If in editMode, use the cwsEditText's text
+            else -> cwsName.selectedItem.toString() // Use the selected item from spinner
+        }
 
-            )
-        dialog.setDismissListener(this)
-        dialog.show()
+        if((adapter.items[position - 1].name== "Cherry reception")&&chart != 0){
+            dialog = PopupActivity(
+                this,
+                auditId,
+                chart,
+                audit,
+                position,
+                adapter.items[position - 1].name,
+                answerDetails,
+                respondent.text.toString(),
+                selectedCwsName,
+//                if (cwsName.selectedItem != null) if (editMode) cwsEditText.text.toString() else cwsName.selectedItem.toString() else "",
+                editMode,
+                viewMode,
+
+                )
+            dialog.setDismissListener(this)
+            dialog.show()
+//            println("----"+ chart)
+        }
+        else {
+            dialog = PopupActivity(
+                this,
+                auditId,
+                null,
+                audit,
+                position,
+                adapter.items[position - 1].name,
+                answerDetails,
+                respondent.text.toString(),
+                selectedCwsName,
+//                if (cwsName.selectedItem != null) if (editMode) cwsEditText.text.toString() else cwsName.selectedItem.toString() else "",
+                editMode,
+                viewMode,
+
+                )
+            dialog.setDismissListener(this)
+            dialog.show()
+
+        }
     }
 
     @SuppressLint("SetTextI18n", "NotifyDataSetChanged")

@@ -62,6 +62,12 @@ class  NewstationActivity : AppCompatActivity() {
             val cwsLeader = findViewById<EditText>(R.id.cwsLeader).text.toString()
             val location = findViewById<EditText>(R.id.location).text.toString()
 
+            if (cwsName.isEmpty()) {
+                findViewById<EditText>(R.id.cwsName).error = getString(R.string.cws_error)
+                findViewById<EditText>(R.id.cwsName).requestFocus()
+                return@setOnClickListener
+            }
+
             lifecycleScope.launch {
                 val existingCws = db.cwsDao().getCwsByName(cwsName)
                 val successMessage = getString(R.string.toast_message)
