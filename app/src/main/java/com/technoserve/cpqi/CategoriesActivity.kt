@@ -171,7 +171,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                                 it.answer,
                                 it.qId,
                                 it.auditId,
-                                cwsName = answerDetails.last().cwsName,
+                                cwsNameValue,
                                 groupedAnswersId = it.groupedAnswersId,
                             )
                         )
@@ -198,23 +198,29 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 return@setOnClickListener
             }
 
-            //if the respondent is empty raise an error and after entering name update the answerDetails
 
-            //if cws name is not selected, show a toast and request focus in the spinner to select cws name
-            Log.d("cwsName.selectedItem", "cwsName.selectedItem: ${cwsName.selectedItem}")
-            val hintText = getString(R.string.select_cws_name)
-            Log.d("hintText", "hintText: $hintText")
-            if (cwsName.selectedItem == null || cwsName.selectedItem == hintText) {
-                Toast.makeText(
-                    this,
-                    applicationContext.getText(R.string.missing_cws_error),
-                    Toast.LENGTH_SHORT
-                ).show()
-                cwsName.requestFocus()
-                return@setOnClickListener
-            }
 
             if (!editMode) {
+                //if the respondent is empty raise an error and after entering name update the answerDetails
+
+                //if cws name is not selected, show a toast and request focus in the spinner to select cws name
+                Log.d("cwsName.selectedItem", "cwsName.selectedItem: ${cwsName.selectedItem}")
+                val hintText = getString(R.string.select_cws_name)
+                Log.d("hintText", "hintText: $hintText")
+                if (cwsName.selectedItem == null || cwsName.selectedItem == hintText) {
+                    Toast.makeText(
+                        this,
+                        applicationContext.getText(R.string.missing_cws_error),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    cwsName.requestFocus()
+                    return@setOnClickListener
+                }else {
+//                update answers variable with the selected cws name
+                    answers.forEach {
+                        it.cwsName = cwsName.selectedItem.toString()
+                    }
+                }
                 // Insert new answers into the database
                 Thread {
                     db.answerDao().insertAll(answers)
