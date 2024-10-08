@@ -1,4 +1,3 @@
-
 package com.technoserve.cpqi.adapters
 
 import android.annotation.SuppressLint
@@ -74,14 +73,16 @@ class CategoryAdapter(
             }
         }
 
-        if (selectedCategoryIds.contains(currentItem.id.toInt())) {
+//        remove all background colors
+        holder.progressedBar.setBackgroundColor(context.getColor(R.color.grey))
+        holder.progressBar.setBackgroundColor(context.getColor(R.color.white))
+
+        if (selectedCategoryIds.contains(holder.position + 1)) {
             holder.progressedBar.setBackgroundColor(context.getColor(R.color.maroon))
             holder.progressBar.setBackgroundColor(context.getColor(R.color.maroonWhite))
         }
 
         loadImageFromUrl(currentItem.iconPath, holder.categoryIconView)
-        Log.d("CategoryAdapter", "Position: $position, SelectedCategoryIds: $selectedCategoryIds")
-
     }
 
     override fun getItemCount(): Int {

@@ -63,7 +63,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CategoryAdapter
     private lateinit var audit: String
-    private var chart :Int=0
+    private var chart: Int = 0
     private var auditId by Delegates.notNull<Int>()
     private lateinit var respondentContainer: LinearLayout
     private lateinit var respondent: TextView
@@ -139,6 +139,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
         toolBarTitle.text = intent.getStringExtra("auditName")
         backIconBtn.setOnClickListener {
             // Go back to the previous activity
+
             finish()
         }
 
@@ -163,7 +164,6 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 answers.forEach {
                     if (it.id == null) {
                         val cwsNameValue = answerDetails.last().cwsName
-                        Log.d("cwsNameValue", "cwsNameValue: $cwsNameValue")
                         answerDetails = answerDetails.plus(
                             Answers(
                                 null,
@@ -202,11 +202,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
 
             if (!editMode) {
                 //if the respondent is empty raise an error and after entering name update the answerDetails
-
-                //if cws name is not selected, show a toast and request focus in the spinner to select cws name
-                Log.d("cwsName.selectedItem", "cwsName.selectedItem: ${cwsName.selectedItem}")
                 val hintText = getString(R.string.select_cws_name)
-                Log.d("hintText", "hintText: $hintText")
                 if (cwsName.selectedItem == null || cwsName.selectedItem == hintText) {
                     Toast.makeText(
                         this,
@@ -215,7 +211,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                     ).show()
                     cwsName.requestFocus()
                     return@setOnClickListener
-                }else {
+                } else {
 //                update answers variable with the selected cws name
                     answers.forEach {
                         it.cwsName = cwsName.selectedItem.toString()
@@ -280,6 +276,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
         }
 
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n")
 
@@ -388,6 +385,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
         // Change background color of RecyclerView to white
         recyclerView.setBackgroundColor(ContextCompat.getColor(this, R.color.LightPink1))
     }
+
     @SuppressLint("SetTextI18n")
     private fun setupUI(items: List<Categories>?) {
         respondentContainer = findViewById(R.id.textInputLayoutContainer)
@@ -469,7 +467,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             it.answer,
                             it.qId,
                             auditId.toLong(),
-                            cwsName.selectedItem?.toString() ?:"",
+                            cwsName.selectedItem?.toString() ?: "",
                             ""
                         )
                     }.toTypedArray()
@@ -481,7 +479,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             "",
                             items!![0].id,
                             auditId.toLong(),
-                            cwsName.selectedItem?.toString() ?:"",
+                            cwsName.selectedItem?.toString() ?: "",
                             ""
                         )
                     )
@@ -545,9 +543,9 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                             null,
                             respondent.text.toString(),
                             "",
-                             items?.getOrNull(0)?.id ?: 0,
-                            auditId=auditId.toLong(),
-                            cwsName=selectedCwsName,
+                            items?.getOrNull(0)?.id ?: 0,
+                            auditId = auditId.toLong(),
+                            cwsName = selectedCwsName,
                             ""
                         )
                     ).toList().toTypedArray()
@@ -585,7 +583,8 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
 
     private fun startActivityAfterClick(position: Int) {
         val auditId = intent.getIntExtra("auditId", 0)
-        val hintText = getString(R.string.select_cws_name) // Example hint text like "Select CWS Name"
+        val hintText =
+            getString(R.string.select_cws_name) // Example hint text like "Select CWS Name"
 
 // Conditional logic for handling the selection
         val selectedCwsName = when {
@@ -594,7 +593,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
             else -> cwsName.selectedItem.toString() // Use the selected item from spinner
         }
 
-        if((adapter.items[position - 1].name== "Cherry reception")&&chart != 0){
+        if ((adapter.items[position - 1].name == "Cherry reception") && chart != 0) {
             dialog = PopupActivity(
                 this,
                 auditId,
@@ -612,9 +611,7 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 )
             dialog.setDismissListener(this)
             dialog.show()
-//            println("----"+ chart)
-        }
-        else {
+        } else {
             dialog = PopupActivity(
                 this,
                 auditId,
@@ -632,7 +629,6 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 )
             dialog.setDismissListener(this)
             dialog.show()
-
         }
     }
 

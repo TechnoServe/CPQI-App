@@ -105,7 +105,13 @@ class AddNewActivity : AppCompatActivity(), AddNewListAdapter.OnItemClickListene
         setupUI(audit, auditId)
 
         backIconBtn.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+            val backIntent = Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
+            startActivity(backIntent)
+            finish()
+//            finish()
+//            onBackPressedDispatcher.onBackPressed()
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)

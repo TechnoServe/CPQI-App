@@ -121,7 +121,7 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:drawableStart="@drawable/baseline_add_24"
-                        android:paddingStart="18dp"
+                        android:paddingStart="15dp"
                         android:paddingEnd="0dp"
                         android:text=""
                         />
