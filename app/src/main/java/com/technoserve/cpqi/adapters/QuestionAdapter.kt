@@ -92,9 +92,9 @@ class QuestionAdapter(
                     }
                 }
 
-                yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.green))
+                yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroon))
                 noBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
-                noBtn.setBackgroundResource(R.drawable.border_maroon)
+                noBtn.setBackgroundResource(R.drawable.border_green)
                 skipBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 skipBtn.setBackgroundResource(R.drawable.border_grey)
             }
@@ -162,9 +162,9 @@ class QuestionAdapter(
                     }
                 }
 
-                noBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroon))
+                noBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroonWhite))
                 yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
-                yesBtn.setBackgroundResource(R.drawable.border_green)
+                yesBtn.setBackgroundResource(R.drawable.border_maroon)
                 skipBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 skipBtn.setBackgroundResource(R.drawable.border_grey)
             }

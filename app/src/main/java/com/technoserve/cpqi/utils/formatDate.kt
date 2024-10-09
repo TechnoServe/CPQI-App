@@ -8,7 +8,7 @@ import java.util.Locale
 @SuppressLint("SimpleDateFormat")
 fun formatDate(dateStr: String): String? {
     val inputFormat = SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.ENGLISH)
-    val outputFormat = SimpleDateFormat("yyyyMMdd")
+    val outputFormat = SimpleDateFormat("yyyy-MM-dd")
     val date = inputFormat.parse(dateStr)
 
     return date?.let { outputFormat.format(it) }

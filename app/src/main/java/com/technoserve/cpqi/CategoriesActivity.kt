@@ -513,27 +513,34 @@ class CategoriesActivity : AppCompatActivity(), CategoryAdapter.OnItemClickListe
                 position: Int,
                 id: Long
             ) {
-                val selectedCwsName = cwsName.selectedItem.toString()
+                val selectedCwsName = cwsName.selectedItem.toString().trim().lowercase(Locale.getDefault())
+                Log.d("selectedCwsName", "selectedCwsName: $selectedCwsName")
                 val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+                Log.d("today", "today: $today")
 
 
-
+//                answerDetails = emptyArray()
                 answerDetails = db.answerDao().getAll()
-                    .filter { it.cwsName == selectedCwsName && formatDate(it.date) == today }
-                    .toTypedArray()
+
+                 val filteredDetails= answerDetails
+                    .filter { it.cwsName.trim().lowercase(Locale.getDefault()) == selectedCwsName && formatDate(it.date) == today }
+
+                Log.d("FilteredDetails", "FilteredDetails: ${filteredDetails.joinToString()}")
+                answerDetails = filteredDetails.toTypedArray()
 
                 if (answerDetails.isNotEmpty()) {
                     // Display error message immediately
                     if (!editMode) {
                         (parent?.getChildAt(0) as? TextView)?.error =
                             getString(R.string.already_recorded_error_alert_msg)
-                    }
+
                     // display alert-dialog with error message
                     Toast.makeText(
                         this@CategoriesActivity,
                         applicationContext.getText(R.string.already_recorded_error_alert_msg),
                         Toast.LENGTH_SHORT
                     ).show()
+                }
                     //disable the gridLayout below spinner
                     if (!editMode) disableRecyclerView(recyclerView)
                 } else {
