@@ -18,6 +18,7 @@
             android:src="@drawable/background" />
 
         <RelativeLayout
+            android:id="@+id/languageContainer"
             android:layout_width="150dp"
             android:layout_height="35dp"
             android:layout_marginStart="5dp"
@@ -51,17 +52,18 @@
 
         <TextView
             android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="220dp"
             android:layout_marginEnd="10dp"
+            android:paddingVertical="20dp"
+            android:background="@drawable/overlay_bg"
             android:gravity="center"
-            android:background="@color/transparent"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/welcome_message"
-            android:textColor="#D7CFD7"
+            android:textColor="#FFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -77,20 +79,22 @@
             android:textColor="@color/white" />
 
     </RelativeLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:layout_gravity="bottom|center_horizontal"
-    android:gravity="center">
-    <ImageView
-        android:id="@+id/logoWatermark"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:foregroundGravity="center"
-        android:alpha="0.9"
-        android:contentDescription="App Logo Watermark"
-        android:src="@drawable/tns1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/logoWatermark"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:alpha="0.9"
+            android:contentDescription="App Logo Watermark"
+            android:foregroundGravity="center"
+            android:src="@drawable/tns1" />
     </RelativeLayout>
 
 </FrameLayout>

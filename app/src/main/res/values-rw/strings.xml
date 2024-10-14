@@ -28,6 +28,7 @@
     <string name="category_icon">category icon</string>
     <string name="import_csv">Shyiramo CSV</string>
     <string name="export_csv">Bika CSV</string>
+<string name="share_csv">Sangiza CSV</string>
     <string name="submitAll_txt">Submit All</string>
     <string name="skip">Taruka</string>
     <string name="submit">Emeza</string>
@@ -54,7 +55,8 @@
     <string name="address_error">Andika izina rya Aderesi</string>
     <string name="_2024_03_19">2024–03–19</string>
     <string name="uploaded_file">uploaded file</string>
-    <string name="missing_cws_error">Please select a CWS</string>
+    <string name="spinner_select">Hitamo cyagwa wandike CWS</string>
+    <string name="missing_cws_error">Hitamo cyagwa wandike CWS</string>
     <string name="CWS_Owner" > Nyiri sitasiyo </string>
     <string name="cws_owner">Nyiri sitasiyo</string>
     <string name="name_of_respondent">izina ryuwuzuza</string>

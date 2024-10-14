@@ -18,6 +18,9 @@
         android:padding="8dp"
         android:src="@drawable/baseline_close_24" />
 
+
+
+
     <TextView
         android:id="@+id/popUpTitle"
         android:layout_width="match_parent"
@@ -29,16 +32,24 @@
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/chartImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:layout_marginBottom="16dp">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/cherry_scale"
+            />
     </ScrollView>
 
     <Button
