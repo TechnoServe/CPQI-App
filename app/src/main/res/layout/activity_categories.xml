@@ -63,12 +63,15 @@
                 android:id="@+id/nameInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/respondent_name">
+                android:hint="@string/respondent_name"
+                app:hintTextColor="@color/grey">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp" />
+                    android:layout_height="48dp"
+                    android:textColor="@color/black"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -81,7 +84,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cwsEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp" />
+                    android:layout_height="48dp"
+                   android:textColorHint="@color/darkGrey"
+                    android:textColor="@color/black"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <!-- CWS Name Input -->
@@ -97,8 +102,7 @@
                     android:orientation="horizontal"
                     tools:ignore="UselessParent">
 
-
-                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                             style="@android:style/Widget.Spinner.DropDown"
                             android:id="@+id/cwsNameSpinner"
                             android:layout_width="0dp"
@@ -107,16 +111,17 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingClass" />
 
 
                     <Button
                         android:id="@+id/addStation"
                         android:layout_width="0dp"
-                        android:layout_height="68dp"
+                        android:layout_height="60dp"
                         android:layout_weight="1"
-                        android:drawableStart="@drawable/baseline_control_point_24"
-                        android:paddingStart="18dp"
+                        android:drawableStart="@drawable/baseline_add_24"
+                        android:paddingStart="15dp"
                         android:paddingEnd="0dp"
                         android:text=""
                         />
@@ -143,7 +148,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@color/white"/>
 
             </GridLayout>
         </ScrollView>

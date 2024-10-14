@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
@@ -24,7 +25,9 @@ import org.json.JSONObject
 class PopupActivity(
     context: Context,
     private val auditId: Int,
+    private val chart:Int?,
     private val audit: String,
+
     private val catId: Int,
     private val catName: String,
     private var answerDetails: Array<Answers>,
@@ -47,10 +50,33 @@ class PopupActivity(
         }
     }
 
+    private lateinit var chartImageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.popup)
+
+         chartImageView = findViewById(R.id.chartImageView)
+
+
+        if ( catName == "Cherry reception") {
+            chartImageView.visibility = View.VISIBLE
+            if(chart!= null){
+                try {
+                    chartImageView.setImageResource(chart)
+                }catch(e: Exception) {
+                    Log.e("PopupActivity", "Error setting chart image: ${e.message}")
+                    // Optionally set a default image or handle error
+                }
+            } else{
+                Log.w("PopupActivity", "Chart ID is null for category: $catName")
+            }
+
+        }
+        else {
+            chartImageView.visibility = View.GONE
+        }
         setupUI()
     }
 
@@ -88,6 +114,7 @@ class PopupActivity(
         popupTitle.text = catName
         adapter = QuestionAdapter(
             auditId,
+            if (catName == "Cherry reception") chart else null,
             items,
             answerDetails,
             respondent,
@@ -97,6 +124,7 @@ class PopupActivity(
         )
 
         recyclerView.adapter = adapter
+        chartImageView.visibility = if (catName == "Cherry reception") View.VISIBLE else View.GONE
 
         if (editMode) {
             saveBtn.setOnClickListener {

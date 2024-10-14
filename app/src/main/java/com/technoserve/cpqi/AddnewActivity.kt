@@ -23,6 +23,7 @@ import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.technoserve.cpqi.adapters.AddNewListAdapter
@@ -39,6 +40,8 @@ import com.technoserve.cpqi.parsers.categoryParser
 import com.technoserve.cpqi.utils.isTodayDate
 import org.json.JSONObject
 import java.io.BufferedReader
+import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStreamReader
 import java.io.PrintWriter
 import java.time.format.DateTimeFormatter
@@ -102,7 +105,13 @@ class AddNewActivity : AppCompatActivity(), AddNewListAdapter.OnItemClickListene
         setupUI(audit, auditId)
 
         backIconBtn.setOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+            val backIntent = Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
+            startActivity(backIntent)
+            finish()
+//            finish()
+//            onBackPressedDispatcher.onBackPressed()
         }
     }
     @RequiresApi(Build.VERSION_CODES.O)
@@ -185,6 +194,12 @@ class AddNewActivity : AppCompatActivity(), AddNewListAdapter.OnItemClickListene
                             .show()
                         true
                     }
+                    R.id.share_option -> {
+                        // Share data to CSV
+                        shareCsvFile(this@AddNewActivity, uniqueResult) // Pass the necessary data to generate the CSV
+                        Toast.makeText(this@AddNewActivity, "Sharing data...", Toast.LENGTH_SHORT).show()
+                        true
+                    }
 
                     R.id.import_option -> {
                         // Import data from CSV
@@ -218,9 +233,35 @@ class AddNewActivity : AppCompatActivity(), AddNewListAdapter.OnItemClickListene
         activity.startActivityForResult(intent, requestCodeCreateDocument)
     }
 
+
     private val requestCodeCreateDocument = 1001
 
-    // This function should be called from onActivityResult in the calling Activity or Fragment
+
+    fun generateCsvContent(uniqueResult: Map<String, RecordedAudit>): String {
+        val csvBuilder = StringBuilder()
+        csvBuilder.append("Date,Audit,Category,Question,Answer,CWS Name,Respondent,Total Answered,Score Percentage,Grouped Answers Id\n")
+
+        for (p in uniqueResult) {
+            for (answer in getAnswers.toList().filter { it.groupedAnswersId == p.value.groupedAnswersId }) {
+                val auditName = JSONObject(JSONObject(audit).getJSONArray("audits")[p.value.auditId - 1].toString())["name"]
+                val categoryName = categories.find {
+                    it.id == (items.find { i -> i.id == answer.qId }?.catId?.plus(1))
+                }?.name
+                val questionName = items.find { it.id == answer.qId }?.qName
+                val totalAnswered = getAnswers.toList().filter { it.groupedAnswersId == p.value.groupedAnswersId }.size
+                val scorePercentage = p.value.score * 100 / items.size
+
+                val line = "${p.value.date},$auditName,$categoryName,\"$questionName\",${answer.answer},${p.value.cwsName},${p.value.respondent}," +
+                        "$totalAnswered / ${items.size},$scorePercentage%,${answer.groupedAnswersId}"
+
+                csvBuilder.append(line).append("\n")
+            }
+        }
+
+        return csvBuilder.toString()
+    }
+
+
     private fun handleActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -231,39 +272,47 @@ class AddNewActivity : AppCompatActivity(), AddNewListAdapter.OnItemClickListene
         if (requestCode == requestCodeCreateDocument && resultCode == Activity.RESULT_OK) {
             data?.data?.let { uri ->
                 activity.contentResolver.openOutputStream(uri)?.use { outputStream ->
-                    PrintWriter(outputStream.bufferedWriter()).use { writer ->
-                        writer.println("Date,Audit,Category,Question,Answer,CWS Name,Respondent,Total Answered,Score Percentage,Grouped Answers Id")
-                        for (p in uniqueResult) {
-                            var line: String
-                            for (answer in getAnswers.toList().filter {
-                                it.groupedAnswersId == p.value.groupedAnswersId
-                            }) {
-                                line =
-                                    "${p.value.date},${JSONObject(JSONObject(audit).getJSONArray("audits")[p.value.auditId - 1].toString())["name"]},${
-                                        categories.find {
-                                            it.id == (items.find { i -> i.id == answer.qId }?.catId?.plus(
-                                                1
-                                            ))
-                                        }?.name
-                                    },\"${
-                                        items.find { it.id == answer.qId }?.qName
-                                    }\",${answer.answer},${p.value.cwsName},${p.value.respondent},${
-                                        getAnswers.toList().filter {
-                                            it.groupedAnswersId == p.value.groupedAnswersId
-                                        }.size
-                                    } /  ${items.size},${
-                                        p.value.score * 100 / items.size
-                                    }%,${answer.groupedAnswersId}"
-
-                                writer.println(line)
-                            }
-                        }
+                    val csvContent = generateCsvContent(uniqueResult)
+                    outputStream.bufferedWriter().use { writer ->
+                        writer.write(csvContent)
                         writer.flush()
                     }
                 }
             }
         }
     }
+
+    fun shareCsvFile(activity: Activity, uniqueResult: Map<String, RecordedAudit>) {
+        // Create a temporary file in the cache directory
+        val csvContent = generateCsvContent(uniqueResult)
+        val tempFile = File(activity.cacheDir, "cpqi_audits-${System.currentTimeMillis()}.csv")
+
+        // Write the CSV content to the temporary file
+        FileOutputStream(tempFile).use { outputStream ->
+            outputStream.bufferedWriter().use { writer ->
+                writer.write(csvContent)
+                writer.flush()
+            }
+        }
+
+        // Get the URI for the file using FileProvider
+        val fileUri: Uri = FileProvider.getUriForFile(activity, "${activity.packageName}.fileprovider", tempFile)
+
+        // Create a share intent
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/csv"
+            putExtra(Intent.EXTRA_STREAM, fileUri)
+            putExtra(Intent.EXTRA_SUBJECT, "CPQI Data")
+            putExtra(Intent.EXTRA_TEXT, "Sharing the CPQI data file.")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // Grant read permission for the receiving app
+        }
+
+        // Start the share chooser
+        activity.startActivity(Intent.createChooser(shareIntent, "Share CSV"))
+    }
+
+
+
 
     private fun openDocumentPicker() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {

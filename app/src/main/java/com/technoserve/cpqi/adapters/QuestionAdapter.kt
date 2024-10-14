@@ -1,10 +1,13 @@
 package com.technoserve.cpqi.adapters
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.technoserve.cpqi.R
@@ -13,6 +16,7 @@ import com.technoserve.cpqi.data.Questions
 
 class QuestionAdapter(
     private val auditId: Int,
+    private val chart: Int?,
     private val items: List<Questions>,
     var answerDetails: Array<Answers>,
     private val respondent: String,
@@ -21,6 +25,10 @@ class QuestionAdapter(
     private val viewMode: Boolean
 ) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val chartImageView: ImageView? = itemView.findViewById(R.id.chartImageView)
+
+
+
         fun bind(currentItem: Questions) {
             yesBtn.setOnClickListener {
                 if (editMode) {
@@ -85,9 +93,11 @@ class QuestionAdapter(
                     }
                 }
 
-                yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.green))
+                yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroon))
+                yesBtn.setTextColor(Color.WHITE)
                 noBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
-                noBtn.setBackgroundResource(R.drawable.border_maroon)
+                noBtn.setBackgroundResource(R.drawable.border_green)
+                noBtn.setTextColor(Color.BLACK)
                 skipBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 skipBtn.setBackgroundResource(R.drawable.border_grey)
             }
@@ -155,9 +165,11 @@ class QuestionAdapter(
                     }
                 }
 
-                noBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroon))
+                noBtn.setBackgroundColor(itemView.resources.getColor(R.color.maroonWhite))
+                noBtn.setTextColor(Color.WHITE)
                 yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
-                yesBtn.setBackgroundResource(R.drawable.border_green)
+                yesBtn.setBackgroundResource(R.drawable.border_maroon)
+                yesBtn.setTextColor(Color.BLACK)
                 skipBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 skipBtn.setBackgroundResource(R.drawable.border_grey)
             }
@@ -228,9 +240,13 @@ class QuestionAdapter(
                 skipBtn.setBackgroundColor(itemView.resources.getColor(R.color.grey))
                 yesBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 yesBtn.setBackgroundResource(R.drawable.border_green)
+                yesBtn.setTextColor(Color.BLACK)
                 noBtn.setBackgroundColor(itemView.resources.getColor(R.color.transparent))
                 noBtn.setBackgroundResource(R.drawable.border_maroon)
+                noBtn.setTextColor(Color.BLACK)
             }
+
+
 
             if (viewMode) {
                 yesBtn.isEnabled = false
@@ -248,6 +264,7 @@ class QuestionAdapter(
         val yesBtn: Button = itemView.findViewById(R.id.yesButton)
         val noBtn: Button = itemView.findViewById(R.id.noButton)
         val skipBtn: Button = itemView.findViewById(R.id.skipButton)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -265,6 +282,8 @@ class QuestionAdapter(
         val currentItem = items[position]
         holder.questionNumberView.text = (position + 1).toString()
         holder.questionNameView.text = currentItem.qName
+        holder.chartImageView?.visibility = if (items[position].catId == 0L) View.VISIBLE else View.GONE
+        holder.chartImageView?.setImageResource(chart ?: 0)
 
         // Find the answer for this question from answersFromSP
         val answer = answerDetails.find { it.qId == currentItem.id }
@@ -272,11 +291,13 @@ class QuestionAdapter(
         // Set background color based on the answer (optional, selection highlights remain)
         when (answer?.answer) {
             Answers.YES -> {
-                holder.yesBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.green))
+                holder.yesBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroon))
+                holder.yesBtn.setTextColor(Color.WHITE)
             }
 
             Answers.NO -> {
-                holder.noBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroon))
+                holder.noBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroonWhite))
+                holder.noBtn.setTextColor(Color.WHITE)
             }
 
             Answers.SKIP -> {
@@ -288,11 +309,13 @@ class QuestionAdapter(
                     val existingAnswer = answerDetails.find { it.qId == currentItem.id }
                     when (existingAnswer?.answer) {
                         Answers.YES -> {
-                            holder.yesBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.green))
+                            holder.yesBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroon))
+                            holder.yesBtn.setTextColor(Color.WHITE)
                         }
 
                         Answers.NO -> {
-                            holder.noBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroon))
+                            holder.noBtn.setBackgroundColor(holder.itemView.resources.getColor(R.color.maroonWhite))
+                            holder.noBtn.setTextColor(Color.WHITE)
                         }
 
                         Answers.SKIP -> {
